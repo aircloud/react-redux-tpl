@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "export NODE_ENV=development && node bin/index.js",
+    "init": "export NODE_ENV=development && npm install",
     "build": "export NODE_ENV=development && webpack --hot && node bin/index.js",
     "produce": "export NODE_ENV=production && webpack  && node bin/index.js"
   },

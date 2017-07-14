@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "init": "export NODE_ENV=development && npm install",
-    "build": "export NODE_ENV=development && webpack --hot && node bin/index.js",
+    "build": "rm public/javascripts/*.js || true && export NODE_ENV=development && webpack --hot && node bin/index.js",
     "produce": "export NODE_ENV=production && webpack  && node bin/index.js"
   },
   "dependencies": {

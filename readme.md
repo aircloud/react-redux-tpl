@@ -20,7 +20,7 @@ You can use npm：
 npm install react-redux-tpl -g
 react-redux-tpl FileName
 cd FileName
-npm install
+npm run init
 npm run start
 ```
 
@@ -31,7 +31,7 @@ You can also directly use `git clone`:
 ```
 git clone https://github.com/aircloud/react-redux-tpl
 cd react-redux-tpl
-npm install
+npm run init
 npm run start
 ```
 

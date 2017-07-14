@@ -1,3 +1,6 @@
+@update: Remove the useless content to reduce the size of the package 
+______
+
 ### Instruction of react-redux-tpl 
 
   <a href="https://www.npmjs.com/package/react-redux-tpl"><img src="https://img.shields.io/npm/v/react-redux-tpl.svg" alt="Version"></a>

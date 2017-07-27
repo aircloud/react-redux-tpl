@@ -9,15 +9,11 @@
   },
   "dependencies": {
     "async": "^2.1.5",
-    "babel-core": "^6.24.0",
-    "babel-polyfill": "^6.22.0",
-    "body-parser": "~1.15.2",
     "cookie-parser": "~1.4.3",
     "cross-env": "^3.2.3",
     "debug": "~2.2.0",
     "express": "~4.14.0",
     "express-session": "^1.15.1",
-    "jade": "~1.11.0",
     "morgan": "~1.7.0",
     "mysql": "^2.13.0",
     "qs": "^6.3.0",
@@ -32,6 +28,8 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
+    "babel-polyfill": "^6.22.0", // http://www.ruanyifeng.com/blog/2016/01/babel.html
+    "body-parser": "~1.15.2",
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
     "babel-plugin-import": "^1.1.1",

@@ -1,8 +1,4 @@
-/**
- * Created by Xiaotao.Nie on 2017/3/13.
- * All right reserved
- * IF you have any question please email onlythen@yeah.net
- */
+
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import {getAllClass,updateInfo} from '../../actions/index.action';

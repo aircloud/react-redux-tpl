@@ -1,8 +1,4 @@
-/**
- * Created by Xiaotao.Nie on 2017/3/13.
- * All right reserved
- * IF you have any question please email onlythen@yeah.net
- */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from '../store/configureStore';
@@ -19,7 +15,7 @@ const history = syncHistoryWithStore(hashHistory, store);
 ReactDOM.render((
     <Provider store={store}>
         <div>
-            <DevTools />
+            {/*<DevTools />*/}
             {routes(history)}
         </div>
     </Provider>

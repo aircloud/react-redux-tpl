@@ -1,8 +1,4 @@
-/**
- * Created by Xiaotao.Nie on 2017/3/13.
- * All right reserved
- * IF you have any question please email onlythen@yeah.net
- */
+
 import { combineReducers } from 'redux'
 
 import {GET_CLASS,EXAMPLE} from "../actions/index.action"

@@ -1,64 +1,79 @@
+const path = require('path');
+const  webpack = require('webpack');
+const  ManifestPlugin = require('webpack-manifest-plugin');
+const  WebpackHashSync = require("webpack-hash-sync");
+const  fs = require("fs");
+const  hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
 
-var path = require('path');
-var webpack = require('webpack');
-var ManifestPlugin = require('webpack-manifest-plugin');
-var WebpackHashSync = require("webpack-hash-sync");
-var fs = require("fs");
-var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
-var hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
+let apps,addPlugins;
+
+if(process.env.NODE_ENV === "production") {
+    apps = ['./common/enter/index.js'];
+    addPlugins = [
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        }),
+    ]
+} else {
+    apps = ['./common/enter/index.js', hotMiddlewareScript];
+    addPlugins = [];
+}
 
 module.exports = {
-
     devtool: 'sourcemap',
     entry: {
-        app:
-            ['./common/enter/index.js',hotMiddlewareScript],
-        vendor: ["react-redux","react-router"],
+        vendor: ['react','react-dom','redux','react-redux','react-router','react-router-redux'],
+        app: apps, //目前是只要有vendor就报错
     },
     output: {
         path: path.join(__dirname, 'public/javascripts'),
-        filename: 'output.[chunkhash].js',
-        publicPath:'http://localhost:7777/javascripts/',
+        filename: '[name].[hash].js',
+        publicPath: '/javascripts/',
     },
     plugins: [
         new ManifestPlugin(),
-        new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: "common.[hash].js" }),
+        // new webpack.optimize.ModuleConcatenationPlugin(),
+
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            filename: 'common.min.js',
+            // chunks: ['app'], // 注意这里如果有chunks，chunks里面的内容相当于是被减数, 如果在entry中增加了文件，请记得在这里进行更改
+        }),
+
+        // new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: "common.min.js", minChunks: Infinity,}),
         new WebpackHashSync({
-            file:["output.*?js","common.*?js"],
-            path:path.join(__dirname, 'public/'),
-            html:["index.html"],
-            hash:true,
-            chunkhash:false
+            file: ["app.*?js"],
+            path: path.join(__dirname, 'public/'),
+            html: ["index.html"],
+            hash: true,
+            chunkhash: false
         }),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin()
-        //开发环境不启用,生产环境应当启用
-        // new webpack.DefinePlugin({
-        //     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-        // }),
-        // new webpack.optimize.UglifyJsPlugin({
-        //     compress: {
-        //         warnings: false
-        //     }
-        // }),
+        new webpack.NoEmitOnErrorsPlugin(),
+        // 开发环境不启用,生产环境应当启用
+        ...addPlugins
     ],
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx?$/,
                 include: path.join(__dirname, 'common'),
-                loader: ['react-hot-loader','babel-loader'],
                 exclude: /node_modules/,
-
+                use: ['react-hot-loader', 'babel-loader']
             },
             {
                 test: /\.less$/,
-                loader: 'style-loader!css-loader!less-loader'
+                use: ['style-loader', 'css-loader', 'less-loader']
             },
             {
                 test: /\.css/,
-                loader: 'style-loader!css-loader'
+                use: ['style-loader', 'css-loader']
             },
         ]
-    }
+    },
 };

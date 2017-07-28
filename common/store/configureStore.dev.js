@@ -1,15 +1,17 @@
-
+/**
+ * Created by Xiaotao.Nie on 2017/3/13.
+ * All right reserved
+ * IF you have any question please email onlythen@yeah.net
+ */
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import { hashHistory } from 'react-router';
 
 import ThunkMiddleware from 'redux-thunk';
 import rootReducer from '../reducers/index.reducer';
-import DevTools from './DevTools';
 
 const finalCreateStore = compose(
     applyMiddleware(ThunkMiddleware,routerMiddleware(hashHistory)),
-    DevTools.instrument()
 )(createStore);
 
 console.log("rootReducer",rootReducer);

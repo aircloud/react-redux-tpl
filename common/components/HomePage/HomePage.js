@@ -25,7 +25,7 @@ class HomePage extends Component{
         this.props.updateInfo({
             info:"Then info is changed"
         });
-    }
+    };
 
     render(){
         return(

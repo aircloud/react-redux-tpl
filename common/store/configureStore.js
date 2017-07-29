@@ -1,6 +1,12 @@
 
+import pro from './configureStore.prod';
+import dev from './configureStore.dev';
+let construction ;
+
 if (process.env.NODE_ENV === 'production') {
-    module.exports = require('./configureStore.prod');
+    construction = pro;
 } else {
-    module.exports = require('./configureStore.dev');
+    construction = dev;
 }
+
+export default construction;

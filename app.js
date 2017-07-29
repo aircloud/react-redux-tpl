@@ -17,6 +17,11 @@ const compiler = webpack(webpackDevConfig);
 
 var app = express();
 
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+
+
 app.use(session({
   path:__dirname,
   secret: 'recommand128bytesrandomstringrecommand128bytesrandomstring', // 建议使用 128 个字符的随机字符串
@@ -33,7 +38,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 if(process.env.NODE_ENV !== "production") {
+    console.log("hot reload:", webpackDevConfig.output.publicPath);
     app.use(webpackDevMiddleware(compiler, {
         // public path should be the same with webpack config
         publicPath: webpackDevConfig.output.publicPath,
@@ -57,14 +64,13 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.send("error")
-  // res.render('error');
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
 });
 
 module.exports = app;

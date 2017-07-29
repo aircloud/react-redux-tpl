@@ -5,6 +5,6 @@ import "./Nav.less"
 const  Nav = (props) =>
     <nav>
         <p>React-redux-tpl&nbsp;(using webpack)</p>
-    </nav>;
+    </nav>
 
 export default Nav;

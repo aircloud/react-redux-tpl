@@ -33,7 +33,7 @@ class HomePage extends Component{
                 <h2>HomePage</h2>
                 {this.props.Info}
                 <p>
-                    <Link to="/subpage" onClick={this.changeInfo}>detail</Link>
+                    <Link to="/subpage" onClick={this.changeInfo}>detail2</Link>
                 </p>
             </div>
         )

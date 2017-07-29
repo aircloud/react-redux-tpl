@@ -1,6 +1,4 @@
 
-import {preURL} from "../components/Common/CommonVar";
-
 export const EXAMPLE = "EXAMPLE";
 
 export const GET_CLASS = "GET_CLASS";

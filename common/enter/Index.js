@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { hashHistory } from 'react-router';
 import routes from '../routes/index.route';
-import "../components/common.less"
+// import "../components/common.less"
 
 const store = configureStore();
 const history = syncHistoryWithStore(hashHistory, store);

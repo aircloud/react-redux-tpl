@@ -4,7 +4,7 @@ import "./Nav.less"
 
 const  Nav = (props) =>
     <nav>
-        <p>React-redux-tpl&nbsp;(using webpack)</p>
+        <a href="https://github.com/aircloud/react-redux-tpl" target="_blank">react-redux-tpl</a>
     </nav>
 
 export default Nav;

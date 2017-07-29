@@ -23,7 +23,7 @@ class HomePage extends Component{
 
     changeInfo = () => {
         this.props.updateInfo({
-            info:"Then info is changed"
+            info:"The info is changed"
         });
     };
 
@@ -31,9 +31,10 @@ class HomePage extends Component{
         return(
             <div className="HomeLayout">
                 <h2>HomePage</h2>
-                {this.props.Info}
+                <p>{this.props.Info}
+                </p>
                 <p>
-                    <Link to="/subpage" onClick={this.changeInfo}>detail2</Link>
+                    <Link to="/subpage" onClick={this.changeInfo}>Go to detail</Link>
                 </p>
             </div>
         )

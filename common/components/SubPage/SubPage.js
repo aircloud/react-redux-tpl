@@ -25,8 +25,8 @@ class SubPage extends Component{
         return(
             <div className="SubPageLayout">
                 <h2>SubPage</h2>
-                {this.props.Info}
-                <p><Link to="/">Home</Link></p>
+                <p>{this.props.Info}</p>
+                <p><Link to="/">Go to Home</Link></p>
             </div>
         )
     }

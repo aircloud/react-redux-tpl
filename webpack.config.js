@@ -28,8 +28,7 @@ if(process.env.NODE_ENV === "production") {
 module.exports = {
     devtool: 'sourcemap',
     entry: {
-        app: apps, //目前是只要有vendor就报错
-        // vendor: ['react','react-dom','redux','react-redux','react-router','react-router-redux'],
+        app: apps
     },
     output: {
         path: path.join(__dirname, 'public/javascripts/'),
@@ -38,16 +37,7 @@ module.exports = {
     },
     plugins: [
         new ManifestPlugin(),
-        // new webpack.optimize.CommonsChunkPlugin({
-        // names: ['chunk', 'vendor'],
-        // filename: 'common.min.js',
-        // }),
-        // new webpack.optimize.CommonsChunkPlugin({
-        //     name: 'vendor',
-        //     filename: 'common.min.js',
-        //     minChunks:Infinity,
-        //     // chunks: ['app'], // 注意这里如果有chunks，chunks里面的内容相当于是被减数, 如果在entry中增加了文件，请记得在这里进行更改
-        // }),
+        //todo: common chunk or external
         new WebpackHashSync({
             file: ["app.*?js"],
             path: path.join(__dirname, 'public/'),

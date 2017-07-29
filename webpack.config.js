@@ -29,7 +29,7 @@ module.exports = {
     devtool: 'sourcemap',
     entry: {
         app: apps, //目前是只要有vendor就报错
-        // vendor: ['react','react-dom','redux','react-redux','react-router','react-router-redux'],
+        // vendor: ['react'],
     },
     output: {
         path: path.join(__dirname, 'public/javascripts/'),
@@ -38,6 +38,17 @@ module.exports = {
     },
     plugins: [
         new ManifestPlugin(),
+        new webpack.optimize.ModuleConcatenationPlugin(),
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name: "vendor",
+        //
+        //     filename: "common.min.js",
+        //     // (给 chunk 一个不同的名字)
+        //
+        //     minChunks: Infinity,
+        //     // 随着 entrie chunk 越来越多，
+        //     // 这个配置保证没其它的模块会打包进 vendor chunk
+        // }),
         // new webpack.optimize.CommonsChunkPlugin({
         // names: ['chunk', 'vendor'],
         // filename: 'common.min.js',

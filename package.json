@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
-    "babel-loader": "^6.4.1",
+    "babel-loader": "^7.1.1",
     "babel-plugin-import": "^1.1.1",
     "babel-plugin-react-transform": "^2.0.2",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
@@ -57,7 +57,7 @@
     "redux-devtools-dock-monitor": "^1.1.2",
     "redux-devtools-log-monitor": "^1.3.0",
     "style-loader": "^0.18.2",
-    "webpack": "^2.7.0",
+    "webpack": "^3.4.1",
     "webpack-dev-middleware": "^1.11.0",
     "webpack-hash-sync": "^0.1.0",
     "webpack-hot-middleware": "^2.18.2",

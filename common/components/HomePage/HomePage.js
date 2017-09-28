@@ -19,9 +19,18 @@ class HomePage extends Component{
         this.state = {
 
         };
+
+        document.body.addEventListener('click',(e)=>{
+            console.log('body onClick',e);
+        })
     }
 
+    certainClick = (e) => {
+        console.log('certain click',e);
+    };
+
     changeInfo = () => {
+
         this.props.updateInfo({
             info:"The info is changed"
         });
@@ -30,7 +39,7 @@ class HomePage extends Component{
     render(){
         return(
             <div className="HomeLayout">
-                <h2>HomePage</h2>
+                <h2 onClick={this.certainClick}>HomePage</h2>
                 <p>{this.props.Info}
                 </p>
                 <p>

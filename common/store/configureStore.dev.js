@@ -14,8 +14,6 @@ const finalCreateStore = compose(
     applyMiddleware(ThunkMiddleware,routerMiddleware(hashHistory)),
 )(createStore);
 
-console.log("rootReducer",rootReducer);
-
 const reducer = combineReducers({
     rootReducer,
     routing: routerReducer,

@@ -7,18 +7,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from '../store/configureStore';
 import { Provider } from 'react-redux';
-import { syncHistoryWithStore } from 'react-router-redux';
-import { hashHistory } from 'react-router';
+// import { syncHistoryWithStore } from 'react-router-redux'; 升级到 react-router 4 之后，无法将history作为props传入
+import createHashHistory from 'history/createBrowserHistory'
+const hashHistory = createHashHistory();
 import routes from '../routes/index.route';
 // import "../components/common.less"
 
 const store = configureStore();
-const history = syncHistoryWithStore(hashHistory, store);
 
 ReactDOM.render((
     <Provider store={store}>
         <div>
-            {routes(history)}
+            {routes()}
         </div>
     </Provider>
 ), document.getElementById('root'));

@@ -2,7 +2,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import {getAllClass,updateInfo} from '../../actions/index.action';
-import { Link } from 'react-router';
+import {Link} from 'react-router-dom';
 import "./HomePage.less";
 
 @connect(state => {
@@ -20,14 +20,7 @@ class HomePage extends Component{
 
         };
 
-        document.body.addEventListener('click',(e)=>{
-            console.log('body onClick',e);
-        })
     }
-
-    certainClick = (e) => {
-        console.log('certain click',e);
-    };
 
     changeInfo = () => {
 
@@ -39,7 +32,7 @@ class HomePage extends Component{
     render(){
         return(
             <div className="HomeLayout">
-                <h2 onClick={this.certainClick}>HomePage</h2>
+                <h2>HomePage</h2>
                 <p>{this.props.Info}
                 </p>
                 <p>

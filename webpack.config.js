@@ -28,7 +28,8 @@ if(process.env.NODE_ENV === "production") {
 module.exports = {
     devtool: 'sourcemap',
     entry: {
-        app: apps
+        app: apps,
+        // vendor: ['react','react-dom']
     },
     output: {
         path: path.join(__dirname, 'public/javascripts/'),
@@ -36,6 +37,12 @@ module.exports = {
         publicPath: 'http://localhost:7777/javascripts/', //publicPath相当于告诉热更新你的存放路径
     },
     plugins: [
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name: 'vendor',
+        //     filename: 'common.min.js',
+        //     minChunks:Infinity,
+        //     // chunks: ['app'], // 注意这里如果有chunks，chunks里面的内容相当于是被减数, 如果在entry中增加了文件，请记得在这里进行更改
+        // }),
         new ManifestPlugin(),
         //todo: common chunk or external
         new WebpackHashSync({
@@ -51,6 +58,8 @@ module.exports = {
             test: /\.hot-update\.js.*?$/,
             useHashIndex: true
         }),
+        new webpack.optimize.ModuleConcatenationPlugin(),
+
         // 开发环境不启用,生产环境应当启用
         ...addPlugins
     ],

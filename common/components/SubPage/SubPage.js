@@ -2,7 +2,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import {getAllClass,updateInfo} from '../../actions/index.action';
-import { Link } from 'react-router';
+import {Link} from 'react-router-dom';
 import "./SubPage.less";
 
 @connect(state => {

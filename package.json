@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "clear": "rm public/javascripts/*.js* public/javascripts/*.js.map || true",
     "init": "export NODE_ENV=development && npm install",
     "webpack-dev": "rm public/javascripts/*.js* public/javascripts/*.js.map || true && export NODE_ENV=development && webpack",
     "webpack-prod": "rm public/javascripts/*.js* public/javascripts/*.js.map || true && export NODE_ENV=production && webpack",

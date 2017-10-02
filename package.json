@@ -7,8 +7,7 @@
     "init": "export NODE_ENV=development && npm install",
     "webpack-dev": "rm public/javascripts/*.js* public/javascripts/*.js.map || true && export NODE_ENV=development && webpack",
     "webpack-prod": "rm public/javascripts/*.js* public/javascripts/*.js.map || true && export NODE_ENV=production && webpack",
-    "build": "rm public/javascripts/*.js* public/javascripts/*.js.map || true && export NODE_ENV=development && webpack --hot && node bin/index.js",
-    "build2": "export NODE_ENV=development && webpack --hot && node bin/index.js",
+    "start": "rm public/javascripts/*.js* public/javascripts/*.js.map || true && export NODE_ENV=development && webpack --hot && node bin/index.js",
     "produce": "rm public/javascripts/*.js* public/javascripts/*.js.map || true &&export NODE_ENV=production && webpack  && node bin/index.js"
   },
   "dependencies": {
